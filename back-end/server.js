@@ -6,12 +6,14 @@ import { authtoken } from './middleware/middleware.js'
 import { cadastro } from './controller/cadastro.js'
 import { login } from './controller/login.js'
 import bcrypt from 'bcrypt'
+import cors from 'cors'
 
 const app = express()
 
 const prisma = new PrismaClient()
 
 app.use(express.json())
+app.use(cors())
 
 app.listen(3000)
 
