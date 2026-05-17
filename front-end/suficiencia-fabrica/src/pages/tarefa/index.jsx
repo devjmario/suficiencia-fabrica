@@ -55,6 +55,13 @@ function Tarefa() {
 
     async function criarTarefa() {
 
+        if (!titulo.trim()) {
+
+            alert('Digite um título.')
+
+            return
+        }
+        
         const token = localStorage.getItem('token')
 
         await api.post('/tarefas',
@@ -83,6 +90,13 @@ function Tarefa() {
         try {
 
             const token = localStorage.getItem('token')
+
+            if (!titulo.trim()) {
+
+                alert('Digite um título.')
+
+                return
+            }
 
             await api.put('/tarefas', {
 

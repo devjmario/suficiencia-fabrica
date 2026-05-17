@@ -15,6 +15,15 @@ function Cadastro() {
 
   try {
 
+    if (
+        !inputNome.current.value.trim() ||
+        !inputEmail.current.value.trim() ||
+        !inputSenha.current.value.trim()
+    ) {
+        alert('Preencha todos os campos')
+        return
+    }
+
     const response = await api.post('/cadastro', {
         nome: inputNome.current.value,
         email: inputEmail.current.value,
@@ -26,6 +35,7 @@ function Cadastro() {
     navigate('/')
   } catch(error) {
 
+    alert(error.response?.data?.error)
     console.log(error.response?.data)
 
   }
